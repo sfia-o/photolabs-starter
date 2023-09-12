@@ -1,5 +1,5 @@
 import React from "react";
-
+import PhotoFavButton from './components/PhotoFavButton';
 import PhotoListItem from "./components/PhotoListItem";
 import "./App.scss";
 
@@ -18,17 +18,22 @@ const sampleDataForPhotoListItem = {
 const App = () => {
   return (
     <div className="App">
-      <PhotoListItem
-        className="photo-list__item"
-        data={sampleDataForPhotoListItem}
-        key={sampleDataForPhotoListItem.id}
-      />
+      
+      <PhotoFavButton className="photo-list__fav-icon"/>
       <PhotoListItem
         className="photo-list__item"
         data={sampleDataForPhotoListItem}
         key={sampleDataForPhotoListItem.id}
       />
 
+      <PhotoFavButton className="photo-list__fav-icon"/>
+      <PhotoListItem
+        className="photo-list__item"
+        data={sampleDataForPhotoListItem}
+        key={sampleDataForPhotoListItem.id}
+      />
+
+      <PhotoFavButton className="photo-list__fav-icon"/>
       <PhotoListItem
         className="photo-list__item"
         data={sampleDataForPhotoListItem}
