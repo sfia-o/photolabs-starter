@@ -1,7 +1,13 @@
 .top-nav-bar__topic-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-right: 24px;
+
+  ul{
+    list-style: none;
+    display: flex;
+    
+  }
 }
