@@ -1,15 +1,14 @@
 import React from "react";
-import { useState } from 'react';
-import {photos} from './mock/photos'
+import { useState, useEffect } from "react";
+import photoData from "../mocks/photos";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const [photo, setPhotos] = useState(photos);
-
 const PhotoList = () => {
+
   return (
     <ul className="photo-list">
-      {photos.map((photo) => (
+      {photoData.map((photo) => (
         <PhotoListItem
           key={photo.id}
           location={photo.location}
