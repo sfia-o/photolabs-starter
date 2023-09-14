@@ -7,9 +7,9 @@ function PhotoFavButton() {
 
   const [liked, setLike] = useState(false)
 
-  const handleClick =useCallback(() => {
-    setLike((prev) => !prev);
-  }, []); 
+  const handleClick = () => {
+    setLike(!liked);
+  }; 
 
   return (
     
