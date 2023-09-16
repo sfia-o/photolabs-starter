@@ -14,7 +14,7 @@ const PhotoList = ({ toggleFavourite, isFavourite, openModal }) => {
           urls={photo.urls}
           user={photo.user}
           toggleFavourite={toggleFavourite}
-          isFavourite={isFavourite(photo.id)}
+          isFavourite={isFavourite}
           openModal={openModal}
         />
       ))}
