@@ -1,11 +1,30 @@
 import React from 'react';
+import {useState} from 'react';
+import TopNavigationBar from './../components/TopNavigationBar';
+import PhotoList from './../components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = () => {
+  const [favourites, setFavourites] = useState([]);
+
+  const toggleFavourite = (id) => {
+    if (favourites.includes(id)) {
+      setFavourites(favourites.filter((photo) => photo !== id));
+      console.log(favourites);
+    } else {
+      setFavourites([...favourites, id]);
+    }
+  };
+
+  const isFavourite = (id) => {
+    return favourites.includes(id);
+  };
+
   return (
     <div className="home-route">
-      {/* Insert React */}
+      <TopNavigationBar favourites={favourites} className="top-nav-bar" />
+      <PhotoList favourites={favourites} toggleFavourite={toggleFavourite} isFavourite={isFavourite}/>
     </div>
   );
 };
