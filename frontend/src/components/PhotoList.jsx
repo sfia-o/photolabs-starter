@@ -5,18 +5,20 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
 const PhotoList = ({ toggleFavourite, isFavourite, openModal }) => {
+
   
   return (
     <ul className="photo-list">
       {photoData.map((photo) => (
         <PhotoListItem
           key={photo.id}
+          id={photo.id}
           location={photo.location}
           urls={photo.urls}
           user={photo.user}
           toggleFavourite={toggleFavourite}
           isFavourite={isFavourite}
-          openModal={openModal}
+          openModal={() => openModal(photo.id, photo.location, photo.urls, photo)}
         />
       ))}
     </ul>

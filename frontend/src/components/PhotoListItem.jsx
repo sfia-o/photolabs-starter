@@ -1,20 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({
+  id,
   location,
   urls,
   user,
   toggleFavourite,
   isFavourite,
-  openModal,
+  openModal
 }) => {
-  const handleClick = () => {
+  
+
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  const handlePhotoClick = () => {
+    console.log("handlePhotoClick invoked with data:", id, location, urls, user);
     openModal();
-    console.log(location, urls, user);
-  };
+    setSelectedPhoto({id, location, urls, user});
+  }
 
   return (
     <div  className="photo-list__item">
@@ -22,7 +28,7 @@ const PhotoListItem = ({
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
       />
-      <img onClick={handleClick} className="photo-list__image" src={urls.full} alt="photo" />
+      <img onClick={() => handlePhotoClick()} className="photo-list__image" src={urls.full} alt="photo" />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
