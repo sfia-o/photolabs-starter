@@ -9,19 +9,20 @@ const PhotoListItem = ({
   user,
   toggleFavourite,
   isFavourite,
-  openModal
+  openModal,
 }) => {
   const handleClick = () => {
     openModal();
+    console.log(location, urls, user);
   };
 
   return (
-    <div onClick={handleClick} className="photo-list__item">
+    <div  className="photo-list__item">
       <PhotoFavButton
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
       />
-      <img className="photo-list__image" src={urls.full} alt="photo" />
+      <img onClick={handleClick} className="photo-list__image" src={urls.full} alt="photo" />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
