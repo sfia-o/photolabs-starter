@@ -2,11 +2,14 @@ import React from "react";
 import { useState } from "react";
 import TopNavigationBar from "./../components/TopNavigationBar";
 import PhotoList from "./../components/PhotoList";
+import PhotoDetailsModal from "./../routes/PhotoDetailsModal";
 
 import "../styles/HomeRoute.scss";
 
 const HomeRoute = () => {
   const [favourites, setFavourites] = useState([]);
+  const hasFavourites = favourites.length > 0;
+  const [open, setOpen] = useState(false);
 
   const toggleFavourite = (id) => {
     if (favourites.includes(id)) {
@@ -21,14 +24,26 @@ const HomeRoute = () => {
     return favourites.includes(id);
   };
 
+  // Function to open the modal
+  const openModal = () => {
+    setOpen(true);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="home-route">
-      <TopNavigationBar favourites={favourites} className="top-nav-bar" />
+      <TopNavigationBar hasFavourites={hasFavourites} className="top-nav-bar" />
       <PhotoList
         favourites={favourites}
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
+        openModal={openModal}
       />
+      {open && <PhotoDetailsModal closeModal={closeModal} />}
     </div>
   );
 };
