@@ -43,7 +43,7 @@ const HomeRoute = () => {
         isFavourite={isFavourite}
         openModal={openModal}
       />
-      {open && <PhotoDetailsModal closeModal={closeModal} />}
+      {open && <PhotoDetailsModal toggleFavourite={toggleFavourite} isFavourite={isFavourite} closeModal={closeModal} />}
     </div>
   );
 };

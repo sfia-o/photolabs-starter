@@ -6,7 +6,7 @@ import '../styles/FavBadge.scss';
 const FavBadge = ({ hasFavourites}) => {
   return (
     <div className='fav-badge'>
-      <FavIcon displayAlert={!!hasFavourites}/>
+      <FavIcon displayAlert={!!hasFavourites} selected={true} style={{width: "10px"}}/>
     </div>
   ) 
 };

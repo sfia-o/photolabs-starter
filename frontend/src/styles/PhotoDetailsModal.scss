@@ -1,14 +1,15 @@
 .photo-details-modal {
   background-color: white;
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,0.75);
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -40%);
-  height: 80%;
-  width: 55%;
+  height: 100%;
+  width: 85%;
   overflow-y: scroll;
   border-radius: 12px;
+  border: 1px #E6E6E6
 }
 
 .photo-details-modal__close-button {
@@ -25,7 +26,7 @@
 }
 
 .photo-details-modal__images {
-    margin-left: 36px;
+  margin-left: 36px;
   margin-right: 36px;
   margin-top: 8px;
 }
