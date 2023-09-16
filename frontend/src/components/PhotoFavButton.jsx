@@ -3,11 +3,12 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
+function PhotoFavButton({id, toggleFavourite, isFavourite}) {
 
-  const [liked, setLike] = useState(false)
+  const [liked, setLike] = useState(isFavourite)
 
   const handleClick = () => {
+    toggleFavourite(id);
     setLike(!liked);
   }; 
 

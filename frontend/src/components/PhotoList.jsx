@@ -4,7 +4,7 @@ import photoData from "../mocks/photos";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = () => {
+const PhotoList = ({toggleFavourite, isFavourite}) => {
 
   return (
     <ul className="photo-list">
@@ -14,6 +14,8 @@ const PhotoList = () => {
           location={photo.location}
           urls={photo.urls}
           user={photo.user}
+          toggleFavourite={toggleFavourite}
+          isFavourite={isFavourite(photo.id)}
         />
       ))}
     </ul>

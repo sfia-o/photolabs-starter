@@ -4,8 +4,7 @@ import FavBadge from './FavBadge';
 
 import '../styles/TopNavigationBar.scss'
 
-const TopNavigation = ({favourites}) => {
-  const hasFavourites = favourites.length > 0;
+const TopNavigation = () => {
   
   return (
     <div className="top-nav-bar">
