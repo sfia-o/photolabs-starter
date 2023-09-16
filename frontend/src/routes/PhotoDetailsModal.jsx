@@ -5,7 +5,9 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "../components/PhotoList";
 import PhotoFavButton from "../components/PhotoFavButton";
 
-const PhotoDetailsModal = ({ closeModal, location, photo, user }) => {
+
+const PhotoDetailsModal = ({ closeModal, id, location, urls, user, toggleFavourite, isFavourite }) => {
+  
   const handleClick = () => {
     closeModal();
   };
@@ -20,7 +22,7 @@ const PhotoDetailsModal = ({ closeModal, location, photo, user }) => {
       </button>
 
       <div className="photo-details-modal__images">
-      
+        <PhotoFavButton toggleFavourite={toggleFavourite} isFavourite={isFavourite}/>
         <img
           className="photo-details-modal__image"
           src={`${process.env.PUBLIC_URL}/Image-5-Regular.jpg`}
