@@ -1,24 +1,31 @@
 import React from "react";
-import { useState } from "react";
 import TopNavigationBar from "./../components/TopNavigationBar";
 import PhotoList from "./../components/PhotoList";
-import PhotoDetailsModal from "./../routes/PhotoDetailsModal";
-
 import "../styles/HomeRoute.scss";
 
-const HomeRoute = () => {
-
-
+const HomeRoute = ({
+  photos,
+  topics,
+  toggleModal,
+  favouritePhotos,
+  toggleFavourite,
+  isFavourite,
+  hasFavourites,
+}) => {
   return (
     <div className="home-route">
-      <TopNavigationBar hasFavourites={hasFavourites} className="top-nav-bar" />
+      <TopNavigationBar
+        topics={topics}
+        hasFavourites={hasFavourites}
+        className="top-nav-bar"
+      />
       <PhotoList
-        favourites={favourites}
+        photos={photos}
+        favouritePhotos={favouritePhotos}
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
-        openModal={openModal}
+        toggleModal={toggleModal}
       />
-      {open && <PhotoDetailsModal toggleFavourite={toggleFavourite} isFavourite={isFavourite} closeModal={closeModal} />}
     </div>
   );
 };

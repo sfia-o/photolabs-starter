@@ -24,6 +24,10 @@ const App = () => {
     return favouritePhotos.includes(photoId);
   };
 
+  const hasFavourites = (favouritePhotos) => {
+   favouritePhotos.length > 0
+  }
+
   // Function to open the modal
   const toggleModal = () => {
     setOpenModal(!openModal);
@@ -38,6 +42,8 @@ const App = () => {
         toggleModal={toggleModal}
         favouritePhotos={favouritePhotos}
         toggleFavourite={toggleFavourite}
+        isFavourite={isFavourite}
+        hasFavourites={hasFavourites}
       />
       {openModal && (
         <PhotoDetailsModal
