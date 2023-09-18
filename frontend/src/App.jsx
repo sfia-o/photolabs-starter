@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import HomeRoute from "./routes/HomeRoute";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
-import photos from "mocks/photos";
-import topics from "mocks/topics";
+import photos from "./mocks/photos";
+import topics from "./mocks/topics";
 
 import "./App.scss";
 
@@ -14,9 +14,9 @@ const App = () => {
 
   const toggleFavourite = (photoId) => {
     if (favouritePhotos.includes(photoId)) {
-      setFavourites(favouritePhotos.filter((photoId) => photoId !== id));
+      setFavouritePhotos(favouritePhotos.filter((id) => id !== photoId));
     } else {
-      setFavourites([...favouritePhotos, id]);
+      setFavouritePhotos([...favouritePhotos, photoId]);
     }
   };
 
@@ -24,15 +24,15 @@ const App = () => {
     return favouritePhotos.includes(photoId);
   };
 
-  const hasFavourites = (favouritePhotos) => {
-   favouritePhotos.length > 0
-  }
+  const hasFavourites = favouritePhotos.length > 0;
 
   // Function to open the modal
-  const toggleModal = () => {
+  const toggleModal = (photoData) => {
     setOpenModal(!openModal);
     setSelectedPhoto(photoData);
   };
+
+  console.log({favouritePhotos});
 
   return (
     <div className="App">
@@ -47,6 +47,7 @@ const App = () => {
       />
       {openModal && (
         <PhotoDetailsModal
+          photos={photos}
           photoData={selectedPhoto}
           toggleModal={toggleModal}
           favouritePhotos={favouritePhotos}
