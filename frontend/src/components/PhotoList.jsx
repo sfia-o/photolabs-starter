@@ -1,24 +1,22 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import photoData from "../mocks/photos";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ toggleFavourite, isFavourite, openModal }) => {
-
-  
+const PhotoList = ({ photos, toggleFavourite, isFavourite, toggleModal }) => {
+  console.log({photos});
   return (
     <ul className="photo-list">
-      {photoData.map((photo) => (
+      {photos.map((photoData) => (
         <PhotoListItem
-          key={photo.id}
-          id={photo.id}
-          location={photo.location}
-          urls={photo.urls}
-          user={photo.user}
+          photoData={photoData}
+          key={photoData.id}
+          id={photoData.id}
+          location={photoData.location}
+          urls={photoData.urls}
+          user={photoData.user}
           toggleFavourite={toggleFavourite}
           isFavourite={isFavourite}
-          openModal={() => openModal(photo.id, photo.location, photo.urls, photo)}
+          toggleModal={toggleModal}
         />
       ))}
     </ul>
