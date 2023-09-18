@@ -7,8 +7,14 @@ import PhotoFavButton from "../components/PhotoFavButton";
 
 
 const PhotoDetailsModal = ({ closeModal, photos, photoData, toggleFavourite, isFavourite }) => {
-  const { urls, location, user } = photoData;
+  const { urls, location, user, similar_photos } = photoData;
   const { name, profile } = user;
+  const similarPhotos = Object.values(similar_photos);
+
+
+  console.log(similarPhotos);
+  console.log(photos);
+  
 
   const handleClick = () => {
     closeModal();
@@ -44,7 +50,7 @@ const PhotoDetailsModal = ({ closeModal, photos, photoData, toggleFavourite, isF
         </div>
       <div className="photo-details-modal__images">
         <h3>Similar Photos</h3>
-        <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} className="photo-details-modal__images" />
+        <PhotoList photos={similarPhotos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} className="photo-details-modal__images" />
       </div>
     </div>
       </div>
