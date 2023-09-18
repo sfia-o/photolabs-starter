@@ -11,11 +11,6 @@ const PhotoDetailsModal = ({ closeModal, photos, photoData, toggleFavourite, isF
   const { name, profile } = user;
   const similarPhotos = Object.values(similar_photos);
 
-
-  console.log(similarPhotos);
-  console.log(photos);
-  
-
   const handleClick = () => {
     closeModal();
   };
