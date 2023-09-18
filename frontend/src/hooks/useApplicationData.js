@@ -51,7 +51,7 @@ function useApplicationData() {
   const hasFavourites = state.favouritePhotos.length > 0;
 
   const toggleFavourite = (photoId) => {
-    dispatch({ type: ACTIONS.TOGGLE_FAVOURITE, payload: { photoId } });
+    dispatch({ type: ACTIONS.TOGGLE_FAVOURITE, payload: photoId });
   };
 
   const isFavourite = (photoId) => {
