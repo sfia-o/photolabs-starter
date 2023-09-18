@@ -1,42 +1,38 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({
-  id,
-  location,
-  urls,
-  user,
+  photoData,
   toggleFavourite,
   isFavourite,
-  openModal
+  toggleModal,
 }) => {
-  
-
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-  const handlePhotoClick = () => {
-    console.log("handlePhotoClick invoked with data:", id, location, urls, user);
-    openModal();
-    setSelectedPhoto({id, location, urls, user});
-  }
+ 
+  const { urls, location, user } = photoData;
+  const { username, profile } = user;
 
   return (
-    <div  className="photo-list__item">
+    <div className="photo-list__item">
       <PhotoFavButton
-        toggleFavourite={toggleFavourite}
+        toggleFavourite={() => toggleFavourite(photoData.id)}
         isFavourite={isFavourite}
       />
-      <img onClick={() => handlePhotoClick()} className="photo-list__image" src={urls.full} alt="photo" />
+      <img
+        onClick={() => toggleModal(photoData)}
+        className="photo-list__image"
+        src={urls.full}
+        alt="photo"
+      />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
-          src={user.profile}
+          src={profile}
           alt="photographer-profile-pic"
         />
         <div className="photo-list__user-info">
-          <p>{user.name}</p>
+          <p>{username}</p>
           <p className="photo-list__user-location">
             {location.city}, {location.country}
           </p>
