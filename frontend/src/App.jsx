@@ -12,8 +12,6 @@ const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [favouritePhotos, setFavouritePhotos] = useState([]);
 
-  const similarPhotos = photos.map((photo) => photo.similar_photos);
-
   const toggleFavourite = (photoId) => {
     if (favouritePhotos.includes(photoId)) {
       setFavouritePhotos(favouritePhotos.filter((id) => id !== photoId));
@@ -48,7 +46,6 @@ const App = () => {
         toggleFavourite={toggleFavourite}
         isFavourite={isFavourite}
         hasFavourites={hasFavourites}
-        similarPhotos = {similarPhotos}
       />
       {openModal && (
         <PhotoDetailsModal
