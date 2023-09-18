@@ -8,7 +8,8 @@ import PhotoFavButton from "../components/PhotoFavButton";
 
 const PhotoDetailsModal = ({ closeModal, photos, photoData, toggleFavourite, isFavourite }) => {
   const { urls, location, user } = photoData;
-  const { username, profile } = user;
+  const { name, profile } = user;
+
   const handleClick = () => {
     closeModal();
   };
@@ -37,8 +38,8 @@ const PhotoDetailsModal = ({ closeModal, photos, photoData, toggleFavourite, isF
             alt="photographer-profile-pic"
           />
           <div className="photo-details-modal__photographer-details">
-          <p>Joe Example</p>
-          <p className="photo-list__user-location">Toronto, Canada</p>
+          <p>{name}</p>
+          <p className="photo-list__user-location">{location.city}, {location.country}</p>
         </div>
         </div>
       <div className="photo-details-modal__images">
