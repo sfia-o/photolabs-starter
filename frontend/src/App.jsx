@@ -32,7 +32,9 @@ const App = () => {
     setSelectedPhoto(photoData);
   };
 
-  console.log({favouritePhotos});
+  const closeModal = () => {
+    setOpenModal(false);
+  };
 
   return (
     <div className="App">
@@ -50,6 +52,7 @@ const App = () => {
           photos={photos}
           photoData={selectedPhoto}
           toggleModal={toggleModal}
+          closeModal={closeModal}
           favouritePhotos={favouritePhotos}
           toggleFavourite={toggleFavourite}
         />
