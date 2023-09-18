@@ -6,8 +6,9 @@ import PhotoList from "../components/PhotoList";
 import PhotoFavButton from "../components/PhotoFavButton";
 
 
-const PhotoDetailsModal = ({ closeModal, id, location, urls, user, toggleFavourite, isFavourite }) => {
-  
+const PhotoDetailsModal = ({ closeModal, photos, photoData, toggleFavourite, isFavourite }) => {
+  const { urls, location, user } = photoData;
+  const { username, profile } = user;
   const handleClick = () => {
     closeModal();
   };
@@ -25,14 +26,14 @@ const PhotoDetailsModal = ({ closeModal, id, location, urls, user, toggleFavouri
         <PhotoFavButton toggleFavourite={toggleFavourite} isFavourite={isFavourite}/>
         <img
           className="photo-details-modal__image"
-          src={`${process.env.PUBLIC_URL}/Image-5-Regular.jpg`}
+          src={urls.full}
           alt="photographer-profile-pic"
         />
 
         <div className="photo-details-modal__header photo-details-modal__photographer-details">
           <img
             className="photo-list__user-profile"
-            src={`${process.env.PUBLIC_URL}/profile-1.jpg`}
+            src={profile}
             alt="photographer-profile-pic"
           />
           <div className="photo-details-modal__photographer-details">
@@ -42,7 +43,7 @@ const PhotoDetailsModal = ({ closeModal, id, location, urls, user, toggleFavouri
         </div>
       <div className="photo-details-modal__images">
         <h3>Similar Photos</h3>
-        <PhotoList toggleFavourite={toggleFavourite} isFavourite={isFavourite} className="photo-details-modal__images" />
+        <PhotoList photos={photos} toggleFavourite={toggleFavourite} isFavourite={isFavourite} className="photo-details-modal__images" />
       </div>
     </div>
       </div>
