@@ -1,22 +1,22 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useReducer } from "react";
+import axios from 'axios';
 import useApplicationData from "hooks/useApplicationData";
 import HomeRoute from "./routes/HomeRoute";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
-import photos from "./mocks/photos";
-import topics from "./mocks/topics";
 
 import "./App.scss";
 
 const App = () => {
   const {
-    state: { openModal, selectedPhoto, favouritePhotos },
+    state: { openModal, selectedPhoto, favouritePhotos, photos, topics },
     toggleFavourite,
     isFavourite,
     hasFavourites,
     toggleModal,
     closeModal,
   } = useApplicationData();
+
 
   return (
     <div className="App">

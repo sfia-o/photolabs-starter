@@ -1,15 +1,20 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
+import axios from 'axios';
 
 const initialState = {
   openModal: false,
   selectedPhoto: null,
   favouritePhotos: [],
+  photos: [],
+  topics: []
 };
 
 const ACTIONS = {
   TOGGLE_MODAL: "TOGGLE_MODAL",
   SET_SELECTED_PHOTO: "SET_SELECTED_PHOTO",
   TOGGLE_FAVOURITE: "TOGGLE_FAVOURITE",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPICS_DATA: "SET_TOPICS_DATA"
 };
 
 function reducer(state, action) {
@@ -18,7 +23,7 @@ function reducer(state, action) {
       return {
         ...state,
         openModal: !state.openModal,
-        selectedPhoto: action.payload
+        selectedPhoto: action.payload,
       };
     case ACTIONS.SET_SELECTED_PHOTO:
       return {
@@ -38,6 +43,10 @@ function reducer(state, action) {
           favouritePhotos: [...state.favouritePhotos, photoId],
         };
       }
+    case ACTIONS.SET_PHOTO_DATA:
+      return { ...state, photos: action.payload };
+    case ACTIONS.SET_TOPICS_DATA:
+      return { ...state, topics: action.payload };
 
     default:
       throw new Error(
@@ -66,6 +75,20 @@ function useApplicationData() {
   const closeModal = () => {
     dispatch({ type: ACTIONS.TOGGLE_MODAL });
   };
+
+  useEffect(() => {
+    axios.get('/api/photos')
+    .then((res) => {
+      dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: res.data})
+    })
+  }, []);
+
+  useEffect(() => {
+    axios.get('/api/topics')
+    .then((res) => {
+      dispatch({type: ACTIONS.SET_TOPICS_DATA, payload: res.data})
+    })
+  })
 
   return {
     state,
