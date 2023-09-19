@@ -6,7 +6,7 @@ The PhotoLabs project for the Web Development React course programming.
 
 Welcome to PhotoLabs, a Lighthouse Labs student project by Sofia Oliveira, that showcases the potential of a React-based single-page application (SPA) for exploring and engaging with photos. 
 
-###PhotoLabs allows you to:
+### PhotoLabs allows you to:
 
 View Photos: Explore a limited collection of photos spanning different topics of interest.
 
