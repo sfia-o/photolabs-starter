@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
@@ -6,18 +6,18 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = ({
   photoData,
   toggleFavourite,
-  isFavourite,
+  favouritePhotos,
   toggleModal,
 }) => {
- 
-  const { urls, location, user } = photoData;
+  const { id, urls, location, user } = photoData;
   const { username, profile } = user;
 
   return (
     <div className="photo-list__item">
       <PhotoFavButton
-        toggleFavourite={() => toggleFavourite(photoData.id)}
-        isFavourite={isFavourite}
+        favouritePhotos={favouritePhotos}
+        toggleFavourite={toggleFavourite}
+        id={id}
       />
       <img
         onClick={() => toggleModal(photoData)}

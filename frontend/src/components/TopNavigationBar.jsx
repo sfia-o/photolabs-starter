@@ -1,18 +1,17 @@
-import React from 'react';
-import TopicList from './TopicList';
-import FavBadge from './FavBadge';
+import React from "react";
+import TopicList from "./TopicList";
+import FavBadge from "./FavBadge";
 
-import '../styles/TopNavigationBar.scss'
+import "../styles/TopNavigationBar.scss";
 
-const TopNavigation = ({hasFavourites, topics}) => {
-  
+const TopNavigation = ({ hasFavourites, topics, onTopicSelect }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics}/>
-      <FavBadge hasFavourites={hasFavourites}/>
+      <TopicList topics={topics} onTopicSelect={onTopicSelect} />
+      <FavBadge hasFavourites={hasFavourites} />
     </div>
-  )
-}
+  );
+};
 
 export default TopNavigation;

@@ -9,21 +9,21 @@ const HomeRoute = ({
   toggleModal,
   favouritePhotos,
   toggleFavourite,
-  isFavourite,
   hasFavourites,
+  onTopicSelect,
 }) => {
   return (
     <div className="home-route">
       <TopNavigationBar
         topics={topics}
         hasFavourites={hasFavourites}
+        onTopicSelect={onTopicSelect}
         className="top-nav-bar"
       />
       <PhotoList
         photos={photos}
         favouritePhotos={favouritePhotos}
         toggleFavourite={toggleFavourite}
-        isFavourite={isFavourite}
         toggleModal={toggleModal}
       />
     </div>

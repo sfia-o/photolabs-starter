@@ -1,17 +1,10 @@
 import React from "react";
-
 import "../styles/TopicListItem.scss";
 
-const sampleDataForTopicListItem = {
-  id: "1",
-  slug: "topic-1",
-  label: "Nature",
-};
-
-const TopicListItem = (props) => {
+const TopicListItem = ({ title, id, onTopicSelect }) => {
   return (
     <div className="topic-list__item">
-      <p>{props.title}</p>
+      <p onClick={() => onTopicSelect(id)}>{title}</p>
     </div>
   );
 };

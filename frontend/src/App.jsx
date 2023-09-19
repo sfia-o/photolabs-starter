@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useEffect, useReducer } from "react";
-import axios from 'axios';
 import useApplicationData from "hooks/useApplicationData";
 import HomeRoute from "./routes/HomeRoute";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
@@ -11,23 +9,21 @@ const App = () => {
   const {
     state: { openModal, selectedPhoto, favouritePhotos, photos, topics },
     toggleFavourite,
-    isFavourite,
-    hasFavourites,
     toggleModal,
     closeModal,
+    onTopicSelect,
   } = useApplicationData();
-
 
   return (
     <div className="App">
       <HomeRoute
         photos={photos}
         topics={topics}
+        onTopicSelect={onTopicSelect}
         toggleModal={toggleModal}
         favouritePhotos={favouritePhotos}
         toggleFavourite={toggleFavourite}
-        isFavourite={isFavourite}
-        hasFavourites={hasFavourites}
+        hasFavourites={favouritePhotos.length > 0}
       />
       {openModal && (
         <PhotoDetailsModal
