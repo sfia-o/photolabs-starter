@@ -7,7 +7,9 @@ Welcome to PhotoLabs, a Lighthouse Labs student project by Sofia Oliveira, that 
 ### PhotoLabs allows you to:
 
 View Photos: Explore a limited collection of photos spanning different topics of interest.
+
 Like Photos: Express your admiration by liking your favorite photos.
+
 Browse Topics: Navigate through a handful of predefined photo categories to discover images that resonate with you.
 
 ## Setup
