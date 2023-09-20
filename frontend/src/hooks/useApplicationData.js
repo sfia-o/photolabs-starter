@@ -69,6 +69,7 @@ function useApplicationData() {
   };
 
   const toggleModal = (photoData) => {
+    window.scrollTo(0, 0);
     dispatch({ type: ACTIONS.TOGGLE_MODAL });
     dispatch({ type: ACTIONS.SET_SELECTED_PHOTO, payload: photoData });
   };
